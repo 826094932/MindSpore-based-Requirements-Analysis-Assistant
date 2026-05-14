@@ -1,0 +1,25 @@
+[
+  {"text": "用户点击提交按钮后，系统需在500ms内保存数据并返回成功状态码200。", "label": "clear"},
+  {"text": "如果库存不足，前端需禁用购买按钮，并显示“库存不足”的灰色提示。", "label": "clear"},
+  {"text": "订单支付成功后，向用户的注册邮箱发送一封包含订单详情的确认邮件。", "label": "clear"},
+  {"text": "用户可以通过输入商品ID或名称，准确查询到对应的商品详细信息。", "label": "clear"},
+  {"text": "API接口需要支持分页，必须包含page_size和page_num参数，且返回total_count。", "label": "clear"},
+
+  {"text": "系统响应要尽量快一些，不能让用户等太久。", "label": "ambiguous"},
+  {"text": "界面设计得要好看，符合现代人的审美标准。", "label": "ambiguous"},
+  {"text": "服务器性能要稳定，处理很多请求的时候不能卡顿。", "label": "ambiguous"},
+  {"text": "这个功能大概需要支持几种不同的数据类型。", "label": "ambiguous"},
+  {"text": "系统的兼容性要好一点，能在各种设备上流畅运行。", "label": "ambiguous"},
+
+  {"text": "用户可以使用微信登录。", "label": "incomplete"},
+  {"text": "需要一个报表导出功能。", "label": "incomplete"},
+  {"text": "如果出现错误，给个提示。", "label": "incomplete"},
+  {"text": "管理员可以管理所有的用户列表。", "label": "incomplete"},
+  {"text": "支持各种文件的上传。", "label": "incomplete"},
+
+  {"text": "系统的代码应当具有良好的可维护性和扩展性。", "label": "untestable"},
+  {"text": "用户体验应该是无缝的。", "label": "untestable"},
+  {"text": "代码逻辑要合理，注释要清晰。", "label": "untestable"},
+  {"text": "系统必须是完美的，不能有任何bug。", "label": "untestable"},
+  {"text": "该模块能够自动适应未来的业务变化。", "label": "untestable"}
+]

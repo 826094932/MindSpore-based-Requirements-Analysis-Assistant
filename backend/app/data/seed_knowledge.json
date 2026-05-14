@@ -1,0 +1,27 @@
+[
+  {
+    "id": "PRD-001",
+    "original_requirement": "用户可以通过手机号登录系统。",
+    "gwt_standard": "Given 用户处于未登录状态\nWhen 用户在登录页面输入有效的手机号并点击获取验证码，输入正确的验证码后点击登录\nThen 系统应提示登录成功，并跳转到系统首页"
+  },
+  {
+    "id": "PRD-002",
+    "original_requirement": "密码输入错误时要有提示。",
+    "gwt_standard": "Given 用户在登录页面\nWhen 用户输入已注册的账号和错误的密码，并点击登录\nThen 系统应在密码输入框下方显示红色提示文字'密码错误，请重试'，并保留当前输入的账号"
+  },
+  {
+    "id": "PRD-003",
+    "original_requirement": "支持导出报表数据为Excel格式。",
+    "gwt_standard": "Given 用户处于报表数据查询结果页面，且有数据展示\nWhen 用户点击'导出Excel'按钮\nThen 系统应触发文件下载，下载的文件为.xlsx格式，且内容与页面查询结果完全一致"
+  },
+  {
+    "id": "PRD-004",
+    "original_requirement": "订单超时未支付自动取消。",
+    "gwt_standard": "Given 用户有一个待支付状态的订单\nWhen 订单创建时间超过30分钟且仍未支付\nThen 系统应自动将该订单状态更新为'已取消'，并释放对应的库存"
+  },
+  {
+    "id": "PRD-005",
+    "original_requirement": "商品搜索支持拼音模糊匹配。",
+    "gwt_standard": "Given 系统中存在商品名为'苹果手机'的商品\nWhen 用户在搜索框中输入'pingguo'或'pg'\nThen 搜索结果列表中应包含'苹果手机'该商品"
+  }
+]

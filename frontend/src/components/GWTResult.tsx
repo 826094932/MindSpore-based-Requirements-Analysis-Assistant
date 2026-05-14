@@ -18,7 +18,7 @@ export default function GWTResult({ data }: Props) {
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center space-x-2">
           <Sparkles size={18} className="text-indigo-600" />
-          <h2 className="font-semibold text-slate-800">智能 GWT 验收标准生成</h2>
+          <h2 className="font-semibold text-slate-800">智能 GWT </h2>
         </div>
         <span className="text-xs px-2 py-1 bg-indigo-50 text-indigo-700 rounded-full border border-indigo-100">
           Source: {data.source}

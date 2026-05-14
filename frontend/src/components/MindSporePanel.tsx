@@ -34,14 +34,14 @@ export default function MindSporePanel({ data }: Props) {
         {data.is_fallback && (
           <span className="text-xs bg-slate-100 text-slate-500 px-2 py-1 rounded flex items-center">
             <AlertTriangle size={12} className="mr-1" />
-            降级规则模式
+            mock模式
           </span>
         )}
       </div>
 
       <div className="flex items-center justify-between mt-6">
         <div>
-          <p className="text-sm text-slate-500 mb-1">预测类别</p>
+          <p className="text-sm text-slate-500 mb-1">MindSpore预测类别</p>
           <span className={`inline-block px-3 py-1 rounded-full text-sm font-medium border ${categoryColors[data.category] || 'bg-gray-100'}`}>
             {categoryNames[data.category] || data.category}
           </span>

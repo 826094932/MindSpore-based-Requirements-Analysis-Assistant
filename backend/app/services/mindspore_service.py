@@ -1,7 +1,7 @@
 import os
 import sys
 
-# 添加 mindspore_model 目录到路径，以便导入
+
 current_dir = os.path.dirname(os.path.abspath(__file__))
 mindspore_dir = os.path.join(current_dir, '..', 'mindspore_model')
 if mindspore_dir not in sys.path:
@@ -31,7 +31,7 @@ class MindSporeService:
             except Exception as e:
                 print(f"Prediction error: {e}")
                 
-        # 降级处理：基于规则的简单分类
+        
         return self._fallback_predict(text)
         
     def _fallback_predict(self, text: str) -> dict:

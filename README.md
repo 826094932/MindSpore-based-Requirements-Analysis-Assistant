@@ -35,15 +35,15 @@ SmartPM-MindSpore-AI-Demo/
 
 ### 前端启动
 需要 Node.js 18+
-1. 进入 `frontend` 目录
-2. 安装依赖: `npm install`
-3. 运行服务: `npm run dev`
 
 
-cd backend
-pip install -r requirements.txt
-uvicorn app.main:app --reload --port 8000
+1. 创建新环境`conda create -n test python=3.11` python 3.9 +
+2. `conda activate test`
+3. 下载依赖`pip install -r requirements.txt`
+4. `cd backend`
+6. 训练分类模型`python app/mindspore_model/train.py`
+7. 后端启动` uvicorn app.main:app --reload --port 8000`
+8. `cd frontend`
+9. `npm install`
+10. 前端启动`npm run dev`
 
-cd frontend
-npm install
-npm run dev

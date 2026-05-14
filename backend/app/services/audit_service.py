@@ -36,11 +36,11 @@ class AuditService:
                     "reason": rule.get('reason', '无具体原因'),
                     "severity": severity
                 })
-                # 简单计算扣分和雷达图
+                # 雷达图
                 deduct = 5 if severity == 'high' else 2
                 score -= deduct
                 
-                # 随机降低一些雷达图维度
+                
                 if severity == 'high':
                     radar_metrics["Clarity"] -= 15
                     radar_metrics["Testability"] -= 10

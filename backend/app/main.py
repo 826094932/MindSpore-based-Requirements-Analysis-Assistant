@@ -38,22 +38,22 @@ async def get_examples():
 async def analyze_requirement(request: AnalyzeRequest):
     text = request.requirement_text
     
-    # 1. 规则审计
+    # 模糊此
     audit_res = audit_service.analyze(text)
     
-    # 2. MindSpore 分类
+    # MindSpore 
     ms_res = mindspore_service.predict(text)
     
-    # 3. RAG 检索
+    # RAG 
     rag_res = rag_service.search(text)
     
-    # 4. GWT 和质量评分生成 (根据配置决定使用 Mock 还是真实大模型)
+    # GWT 和质量评分生成 LLM
     if settings.USE_MOCK:
         llm_res = mock_service.generate_gwt(text, rag_res)
     else:
         llm_res = deepseek_service.generate_gwt(text, rag_res)
         
-    # 合并 LLM 的评分结果
+    #
     audit_res = {
         "score": llm_res.get("score", audit_res["score"]),
         "risks": llm_res.get("risks", audit_res["risks"]),

@@ -26,7 +26,7 @@ export default function RetrievedExamples({ examples }: { examples: Example[] })
               </span>
               <div className="flex items-center text-xs text-green-600 font-medium">
                 <ThumbsUp size={12} className="mr-1" />
-                质量得分: {example.quality_score}
+                综合得分: {example.quality_score}
               </div>
             </div>
             <p className="text-sm text-slate-700 mb-2 font-medium">{example.original}</p>

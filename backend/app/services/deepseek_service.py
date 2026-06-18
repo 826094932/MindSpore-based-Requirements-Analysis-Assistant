@@ -25,6 +25,24 @@ class DeepSeekService:
                 {"subject": "Consistency", "A": 0, "fullMark": 100}
             ]
         }
+
+    def _format_rag_context(self, rag_context: Dict[str, Any]) -> str:
+        examples = rag_context.get("retrieved_examples", [])
+        if not examples:
+            return "No RAG examples were retrieved."
+
+        formatted_examples = []
+        for index, item in enumerate(examples, start=1):
+            formatted_examples.append(
+                "\n".join([
+                    f"[RAG Example {index}]",
+                    f"Original requirement: {item.get('original', '')}",
+                    f"GWT standard: {item.get('gwt', '')}",
+                    f"Quality score: {item.get('quality_score', '')}",
+                ])
+            )
+
+        return "\n\n".join(formatted_examples)
         
     def generate_gwt(self, text: str, rag_context: Dict[str, Any]) -> Dict[str, Any]:
         if not self.api_key:
@@ -35,10 +53,10 @@ class DeepSeekService:
             "Content-Type": "application/json"
         }
         
-        context_str = "\n".join([item['original'] for item in rag_context.get('retrieved_examples', [])])
+        context_str = self._format_rag_context(rag_context)
         
         prompt = f"""
-        你是一个资深产品经理。请分析以下用户需求并进行重写，同时给出质量评分。
+        你是一个资深项目经理。请分析以下用户需求并进行重写，同时给出质量评分。
         参考历史优质需求：
         {context_str}
         
@@ -71,7 +89,20 @@ class DeepSeekService:
                 headers=headers,
                 json={
                     "model": "deepseek-chat",
-                    "messages": [{"role": "user", "content": prompt}],
+                    "messages": [
+                        {
+                            "role": "system",
+                            "content": "Use the provided RAG context as the primary reference for requirement rewriting, risk scoring, and GWT generation."
+                        },
+                        {
+                            "role": "user",
+                            "content": f"RAG retrieved context:\n{context_str}"
+                        },
+                        {
+                            "role": "user",
+                            "content": prompt
+                        }
+                    ],
                     "response_format": {"type": "json_object"}
                 },
                 timeout=30
